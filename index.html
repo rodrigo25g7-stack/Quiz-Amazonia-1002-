@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d2a">
+  <title>Quiz da Turma 1002 | Guardiã da Amazônia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">🌿</span><span>QUIZ <b>TURMA 1002</b></span></div>
+    <button id="operatorOpen" class="operator-link">Área do operador</button>
+  </header>
+
+  <main class="shell">
+    <section id="welcome" class="panel hero">
+      <div class="eyebrow">TURMA 1002 • EJA NOITE</div>
+      <div class="hero-art" aria-hidden="true">🌳 🦜 🌱</div>
+      <h1>A inteligência artificial como guardiã da Floresta Amazônica</h1>
+      <p class="lead">Teste seus conhecimentos sobre como a tecnologia pode ajudar a proteger a Amazônia.</p>
+      <div class="name-field">
+        <label for="participantName">Digite seu nome para começar</label>
+        <input id="participantName" maxlength="70" autocomplete="name" placeholder="Seu nome completo">
+      </div>
+      <button id="startBtn" class="primary">Começar quiz <span>→</span></button>
+      <p class="small-note">São 6 perguntas de conhecimentos e uma avaliação final.</p>
+      <p id="welcomeError" class="error" role="alert"></p>
+    </section>
+
+    <section id="quiz" class="panel hidden">
+      <div class="quiz-meta"><span id="questionCount">PERGUNTA 1 DE 6</span><span id="progressLabel">17%</span></div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <h2 id="questionText"></h2>
+      <div id="options" class="options"></div>
+      <div class="quiz-footer"><span id="answerHint">Escolha uma alternativa.</span><button id="nextBtn" class="primary" disabled>Próxima pergunta →</button></div>
+      <p id="quizError" class="error"></p>
+    </section>
+
+    <section id="evaluation" class="panel hidden">
+      <div class="eyebrow">ÚLTIMA ETAPA</div>
+      <h1>O que você achou do trabalho?</h1>
+      <p class="lead">Avaliação do Trabalho Amazônico da Turma 1002 – EJA Noite.</p>
+      <div class="evaluation-options">
+        <label><input type="radio" name="evaluation" value="Amei! Nota 10!"> <span>😍 Amei! Nota 10!</span></label>
+        <label><input type="radio" name="evaluation" value="Não gostei."> <span>Não gostei.</span></label>
+        <label><input type="radio" name="evaluation" value="Gostei! Nota 9."> <span>😊 Gostei! Nota 9.</span></label>
+      </div>
+      <button id="finishBtn" class="primary">Finalizar participação</button>
+      <p id="finishError" class="error"></p>
+    </section>
+
+    <section id="result" class="panel hero hidden">
+      <div class="result-icon">🏆</div>
+      <div class="eyebrow">PARTICIPAÇÃO REGISTRADA</div>
+      <h1>Obrigado por participar!</h1>
+      <p id="resultName" class="lead"></p>
+      <div class="score"><strong id="scoreNumber">0/6</strong><span>respostas corretas</span></div>
+      <p class="lead">Sua participação ajuda a conscientizar sobre a preservação da Floresta Amazônica.</p>
+      <div class="thanks">MUITO OBRIGADO! 🌳</div>
+      <button id="againBtn" class="secondary">Voltar ao início</button>
+    </section>
+
+    <section id="operator" class="panel hidden">
+      <div class="operator-heading">
+        <div><div class="eyebrow">PAINEL RESTRITO</div><h1>Área do operador</h1></div>
+        <button id="closeOperator" class="icon-button" aria-label="Fechar">✕</button>
+      </div>
+      <div id="loginArea">
+        <p class="lead">Entre com a senha do operador para visualizar os acessos e resultados.</p>
+        <label for="adminPassword">Senha do operador</label>
+        <input id="adminPassword" type="password" placeholder="Digite a senha">
+        <button id="loginBtn" class="primary">Entrar</button>
+        <p id="loginError" class="error"></p>
+      </div>
+      <div id="dashboard" class="hidden">
+        <div class="stats">
+          <div class="stat"><span>Acessos únicos</span><strong id="visitorTotal">0</strong></div>
+          <div class="stat"><span>Participações</span><strong id="participantTotal">0</strong></div>
+          <div class="stat"><span>Média de acertos</span><strong id="averageScore">0/6</strong></div>
+        </div>
+        <div class="table-heading"><h2>Participantes</h2><button id="refreshBtn" class="secondary small-btn">Atualizar</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nome</th><th>Acertos</th><th>Avaliação</th><th>Data</th></tr></thead>
+            <tbody id="resultsBody"><tr><td colspan="4" class="empty">Nenhuma participação registrada.</td></tr></tbody>
+          </table>
+        </div>
+        <div class="admin-actions">
+          <button id="resetBtn" class="danger">Resetar dados</button>
+          <button id="logoutBtn" class="secondary">Sair da área do operador</button>
+        </div>
+        <p class="small-note">O reset apaga a contagem de acessos únicos e todos os resultados registrados.</p>
+      </div>
+    </section>
+  </main>
+  <footer>Quiz educativo • Turma 1002 – EJA Noite</footer>
+  <script src="app.js"></script>
+</body>
+</html>
